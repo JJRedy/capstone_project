@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanban Board</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📋 Mi Tablero Kanban</h1>
+      <button id="addTaskBtn" class="btn-primary">+ Nueva Tarea</button>
+    </header>
+
+    <div class="kanban-board">
+      <!-- Columna: Por Hacer -->
+      <div class="kanban-column" data-status="todo">
+        <div class="column-header">
+          <h2>📝 Por Hacer</h2>
+          <span class="task-count">0</span>
+        </div>
+        <div class="tasks-container" id="todo-tasks"></div>
+      </div>
+
+      <!-- Columna: En Progreso -->
+      <div class="kanban-column" data-status="in-progress">
+        <div class="column-header">
+          <h2>⚡ En Progreso</h2>
+          <span class="task-count">0</span>
+        </div>
+        <div class="tasks-container" id="in-progress-tasks"></div>
+      </div>
+
+      <!-- Columna: Completado -->
+      <div class="kanban-column" data-status="done">
+        <div class="column-header">
+          <h2>✅ Completado</h2>
+          <span class="task-count">0</span>
+        </div>
+        <div class="tasks-container" id="done-tasks"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para agregar tarea -->
+  <div id="taskModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Nueva Tarea</h2>
+      <form id="taskForm">
+        <div class="form-group">
+          <label for="taskTitle">Título</label>
+          <input type="text" id="taskTitle" required>
+        </div>
+        <div class="form-group">
+          <label for="taskDescription">Descripción</label>
+          <textarea id="taskDescription" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="taskPriority">Prioridad</label>
+          <select id="taskPriority">
+            <option value="low">Baja</option>
+            <option value="medium" selected>Media</option>
+            <option value="high">Alta</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary">Crear Tarea</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
